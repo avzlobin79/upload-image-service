@@ -30,6 +30,7 @@ It is also possible to stop the service.
  REQUEST Payload is JSON :[{"originalFileName":"test.txt","contentType":"text/plain","size":4,"payLoad":"dGVzdA=="}
  POST /upload/urls/{isPreview}
  Payload is String : https://bipbap.ru/wp-content/uploads/2017/04/11-1.jpg,https://bipbap.ru/wp-content/uploads/2017/04/11-2.jpg 
+ isPreview is Boolean (creating preview file) 
  POST /actuator/shutdown
  Stop service.
 ```
