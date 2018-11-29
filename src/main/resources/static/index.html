@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>File Upload / Download Rest API</title>
+<link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+	<noscript>
+		<h2>Sorry! Your browser doesn't support Javascript</h2>
+	</noscript>
+	<div class="upload-container">
+		<div class="upload-header">
+			<h2>Spring Boot File Upload / Download Rest API</h2>
+		</div>
+		<div class="upload-content">
+			<div class="multiple-upload">
+				<h3>Upload Multiple Files</h3>
+
+				<div>
+					<h4>isPreview</h4>
+					<input id="isPreviewCheckBox" type="checkbox" class="checkbox" />
+				</div>
+				<h4>Method FormData</h4>
+				<form id="multipleUploadForm1" name="multipleUploadForm1">
+					<input id="multipleFileUploadInput1" type="file" name="files"
+						class="file-input" accept="image/*" multiple required />
+					<button type="submit" class="submit-btn">Submit</button>
+				</form>
+				<h4>Method Json/Base64</h4>
+				<form id="multipleUploadForm2" name="multipleUploadForm2">
+					<input id="multipleFileUploadInput2" type="file" name="files"
+						class="file-input" accept="image/*" multiple required />
+					<button type="submit" class="submit-btn">Submit</button>
+				</form>
+				
+				<div>
+					<h4>Method ByURL</h4>
+					<input id="multipleFileUploadInput3"
+						value="https://bipbap.ru/wp-content/uploads/2017/04/11-1.jpg,https://bipbap.ru/wp-content/uploads/2017/04/11-2.jpg"
+						type="text" name="urls" class="urls-input" />
+					<button type="button" id="uploadByUrls" class="submit-btn">Submit</button>
+					<h4>SHUTDOWN MICROSERVICE</h4>
+					<button type="button" id="shutdown" class="shutdown-btn">Shutdown</button>
+				</div>
+				
+				<div class="upload-response">
+					<div id="multipleFileUploadError"></div>
+					<div id="multipleFileUploadSuccess"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/js/main.js"></script>
+</body>
+</html>
