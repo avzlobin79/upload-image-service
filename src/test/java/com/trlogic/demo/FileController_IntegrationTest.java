@@ -23,6 +23,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.junit.Assert;
+import org.junit.Before;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = UploadImageServiceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
@@ -62,6 +63,19 @@ public class FileController_IntegrationTest {
 			Files.write(testFile, "Hello World !!, This is a test file.".getBytes());
 		}
 		return new FileSystemResource(testFile.toFile());
+	}
+
+	@Before
+	public void createDirTestUploadFile() throws IOException {
+
+		Path testDir = Paths.get("temp-files-test");
+
+		if (!Files.exists(testDir)) {
+
+			Files.createDirectories(testDir);
+
+		}
+
 	}
 
 	@Test
