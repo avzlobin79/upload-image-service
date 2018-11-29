@@ -19,25 +19,24 @@ It is also possible to stop the service.
   ##### Endpoints 
   ****************************************
  ```sh
-  RESPONSE
-  It is the same for all paths.
-  [{"fileName":"test.txt","fileDownloadUri":"http://localhost:8080/downloadFile/test.txt","filePreviewDownloadUri":null,"fileType":"txt","size":4}]
+ RESPONSE
+ It is the same for all paths.
+ [{"fileName":"test.txt","fileDownloadUri":"http://localhost:8080/downloadFile/test.txt","filePreviewDownloadUri":null,"fileType":"txt","size":4}]
   ```
   ```sh
-    REQUEST
-    POST /upload/formdata/{isPreview}
-    POST /upload/json/{isPreview} 
-     REQUEST Payload is JSON :[{"originalFileName":"test.txt","contentType":"text/plain","size":4,"payLoad":"dGVzdA=="}
-   POST /upload/urls/{isPreview}
-     Payload is String : https://bipbap.ru/wp-content/uploads/2017/04/11-1.jpg,https://bipbap.ru/wp-content/uploads/2017/04/11-2.jpg 
-   POST /actuator/shutdown
-   Stop service.
+ REQUEST
+ POST /upload/formdata/{isPreview}
+ POST /upload/json/{isPreview} 
+ REQUEST Payload is JSON :[{"originalFileName":"test.txt","contentType":"text/plain","size":4,"payLoad":"dGVzdA=="}
+ POST /upload/urls/{isPreview}
+ Payload is String : https://bipbap.ru/wp-content/uploads/2017/04/11-1.jpg,https://bipbap.ru/wp-content/uploads/2017/04/11-2.jpg 
+ POST /actuator/shutdown
+ Stop service.
 ```
 ### Setup
 ##### file: main\resources\application.properties
 
 ```sh
-  
 ## MULTIPART (MultipartProperties)
 # Enable multipart uploads
 spring.servlet.multipart.enabled=true
@@ -61,7 +60,15 @@ management.endpoints.web.exposure.include=*
 management.endpoint.shutdown.enabled=true
 
 ```
-### Run application
+##### file: main\resources\test-application.properties
+```sh
+For the test, you must specify the port.
+## DEFINE port for integration test
+server.port = 8090
 
+```
+
+
+### Run application
 
 /opt/jdk1.8.0_171/bin/java -jar -Dserver.port=8080 upload-image-service-0.0.1-SNAPSHOT.jar
